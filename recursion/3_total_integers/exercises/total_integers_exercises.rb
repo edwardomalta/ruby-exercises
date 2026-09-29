@@ -7,4 +7,14 @@ def total_integers(array)
   # NOTE: you may notice that `Array#flatten` would make quick work of this,
   # but you should implement this method without using it. The tests will check
   # to make sure `#flatten` isn't used.
+  count = 0
+  array.each do |item| 
+    case item
+    when Integer
+      count += 1
+    when Array
+      count += total_integers(item)
+    end
+  end
+  return count
 end
