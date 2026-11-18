@@ -32,11 +32,8 @@ def permutations(array)
     array.each_with_index do |item, index|
       copy = array.dup
       copy.delete_at(index)
-      
       list_of_results = permutations(copy)
-
       list_of_results.each do |permutation|
-        #require "pry-byebug"; binding.pry
         result.push([item] + permutation)
       end
     end
